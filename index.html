@@ -39,9 +39,6 @@
         <h1 class="hidden mt-3 text-5xl text-center" id="loader">🌐Loading...</h1>
     </div>
     <script>
-        window.onload = () => {
-            input.value = ''
-        }
         const input = document.getElementById('TextInput');
         const loader = document.getElementById('loader');
         input.addEventListener('keydown', event => {
@@ -51,6 +48,10 @@
                 let url = `https://www.youtube.com/results?search_query=${str.replace(/ /g, '+')}`
                 window.location.href = url;
             }
+        })
+        window.addEventListener('pageshow', () => {
+            input.value = '';
+            loader.classList.add('hidden');
         })
     </script>
 </body>
